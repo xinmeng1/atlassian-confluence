@@ -30,9 +30,9 @@ RUN set -x \
     && chmod -R 700                     "${CONFLUENCE_INSTALL}/work" \
     && cd ${CONFLUENCE_INSTALL}/confluence/WEB-INF/lib \
     && curl -SLO "https://gist.github.com/TommyLau/8a5ce4629d027f7884e6/raw/18fb5f18b5cf7997a37169c0ba4f17e2e38c7c96/atlassian-extras-decoder-v2-3.2.jar" \
+    && curl -SLO "https://raw.githubusercontent.com/xinmeng1/ShareFiles/master/mysql-connector-java-5.1.39-bin.jar" \
     && cd ../atlassian-bundled-plugins/ \
     && curl -SLO "https://gist.github.com/TommyLau/8a5ce4629d027f7884e6/raw/f9597f68f2d244022a12551660394088922c04d1/atlassian-universal-plugin-manager-plugin-2.20.7.jar" \
-    && curl -SLO "https://raw.githubusercontent.com/xinmeng1/ShareFiles/master/mysql-connector-java-5.1.39-bin.jar" \
     && chown -R ${RUN_USER}:${RUN_GROUP} ${CONFLUENCE_INSTALL} \
     && echo "confluence.home=${CONFLUENCE_HOME}" > ${CONFLUENCE_INSTALL}/confluence/WEB-INF/classes/confluence-init.properties \
     && mv ${CONFLUENCE_INSTALL}/confluence/WEB-INF/lib/mail-*.jar ${CONFLUENCE_INSTALL}/lib
